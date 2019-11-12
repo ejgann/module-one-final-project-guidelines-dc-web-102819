@@ -1,13 +1,11 @@
-require 'bundler'
+require 'bundler/setup'
 Bundler.require
-
-require './bin/playlist.rb'
-require './bin/song.rb'
-require './bin/song_playlist.rb'
+require 'require_all'
+require_all './bin'
 
 require 'sinatra/activerecord/rake'
 
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'db/development.db')
-require_all 'lib'
+
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)
