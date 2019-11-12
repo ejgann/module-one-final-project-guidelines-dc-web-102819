@@ -10,6 +10,8 @@ until restart == "no" do
     cli.greeting
     cli.activity
     activity_input = gets.chomp
+    cli.playlist_creation
+    title = gets.chomp
 
 
 

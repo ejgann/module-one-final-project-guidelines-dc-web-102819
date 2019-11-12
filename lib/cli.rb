@@ -44,9 +44,7 @@ class Cli
 
 
     #################################################
-    # Activity Question -- activity puts question/answer
-    # options and captures user's answer, which is 
-    # assigned to "activity_input" variable
+    # Activity Question -- activity puts question/answer options and captures user's answer, which is assigned to "activity_input" variable
     #################################################
 
     def activity
@@ -58,20 +56,14 @@ class Cli
 
         activity_input = gets.chomp
         puts "\n"
-        new_playlist = tempo_assignment(activity_input)
         # List song choices to be added to playlist
         # Add songs to playlist
         # Tell user to get moving
-    end
 
 
-    #################################################
-    # Tempo assignment -- links user's input (a-d)
-    # with a preset BPM range. Establishes min and
-    # max values for #playlist_creation below
-    #################################################
+    # Links user's input (a-d) with a preset BPM range. 
+    # Establishes min and max values for #playlist_creation below
 
-    def tempo_assignment(activity_input)
         if activity_input.downcase == "a"
             puts "Take a stroll with songs in the 130-140 BPM range." 
             return playlist_creation(130, 140)
@@ -85,7 +77,7 @@ class Cli
             return playlist_creation(150, 160)      
         end
         if activity_input.downcase == "d"
-            puts "Hope you're ready to sweat! Let's queue up a playlist of songs with 160-180 BPM."
+            puts "Hope you're ready to sweat! Songs with 160-180 BPM should keep your heart rate up!"
             return playlist_creation(160, 180)       
         end
     end
@@ -100,9 +92,14 @@ class Cli
         # Ask the user what they want to name their playlist, then pass in to create the playlist
         puts "What would you like to name your playlist?"
         title = gets.chomp 
-        puts "Your playlist called #{title} has been created. The songs included will range from #{min_tempo} to #{max_tempo} BPM."
-        return Playlist.create(title, min_tempo, max_tempo) 
-        
+        return Playlist.create(title: "#{title}", min_tempo: "#{min_tempo}", max_tempo: "#{max_tempo}")
+    end
+
+    def add_songs_to_playlist
+
+# Song.where("tempo >= 130 AND tempo <= 140")  -- to get songs whose BPM falls within 130-140
+# 
+
     end
         
     
