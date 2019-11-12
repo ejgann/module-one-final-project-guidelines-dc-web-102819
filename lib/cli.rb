@@ -1,5 +1,6 @@
 require_relative '../config/environment.rb'
 require_relative '../lib/song.rb'
+require_relative '../lib/playlist.rb'
 
 
 class Cli
@@ -13,7 +14,8 @@ class Cli
     end
 
     #################################################
-    # Restart Loop
+    # Restart Loop -- allows user to restart the app 
+    # or exit the program
     #################################################
 
     def loop_method
@@ -42,10 +44,11 @@ class Cli
 
 
     #################################################
-    # Activity Question
+    # Activity Question -- activity puts question/answer
+    # options and captures user's answer, which is 
+    # assigned to "activity_input" variable
     #################################################
 
-    # activity puts question/answer options and captures user's answer, which is assigned to "activity_input" variable
     def activity
         puts "\nWhich of the following describes the type of activity for which you want to create a playlist?\n
         a. Casual walk
@@ -55,65 +58,53 @@ class Cli
 
         activity_input = gets.chomp
         puts "\n"
-        tempo_assignment(activity_input)
+        new_playlist = tempo_assignment(activity_input)
+        # List song choices to be added to playlist
+        # Add songs to playlist
+        # Tell user to get moving
     end
 
 
     #################################################
-    # Tempo assignment
+    # Tempo assignment -- links user's input (a-d)
+    # with a preset BPM range. Establishes min and
+    # max values for #playlist_creation below
     #################################################
 
-    # tempo_assignment method connects "activity_input" variable defined in #activity method
-    # and assigns each input option (a-d) to a bpm range 
     def tempo_assignment(activity_input)
         if activity_input.downcase == "a"
-            tempo_range = (130...140)
-            puts "Great! It sounds like the 130-140 BPM range might work well.\n Here's a playlist of songs you might enjoy."       
+            puts "Take a stroll with songs in the 130-140 BPM range." 
+            return playlist_creation(130, 140)
         end
         if activity_input.downcase == "b"
-            tempo_range = (140...150)
-            puts "Speed Walker! Check out this playlist of songs within the 140-150 BPM range."       
+            puts "Speed Walker! We'll pull together a list of songs within the 140-150 BPM range."
+            return playlist_creation(140, 150)       
         end
         if activity_input.downcase == "c"
-            tempo_range = (150...160)
-            puts "It's a marathon and not a sprint! Keep a steady pace with these songs in the 150-160 BPM range."       
+            puts "It's a marathon and not a sprint! Keep a steady pace with songs in the 150-160 BPM range." 
+            return playlist_creation(150, 160)      
         end
         if activity_input.downcase == "d"
-            tempo_range = (160...180)
-            puts "Hope you're ready to sweat! Queue up this playlist of songs with 160-180 BPM."       
+            puts "Hope you're ready to sweat! Let's queue up a playlist of songs with 160-180 BPM."
+            return playlist_creation(160, 180)       
         end
     end
 
     #################################################
-    # Playlist creation
+    # Playlist creation -- asks user for playlist name
+    # and creates a playlist using that name as title
+    # and passing in min and max from #tempo_assignment
     #################################################
 
-    def playlist_creation
-        Playlist.create(title, min_tempo, max_tempo)  
+    def playlist_creation(min_tempo, max_tempo)
+        # Ask the user what they want to name their playlist, then pass in to create the playlist
+        puts "What would you like to name your playlist?"
+        title = gets.chomp 
+        puts "Your playlist called #{title} has been created. The songs included will range from #{min_tempo} to #{max_tempo} BPM."
+        return Playlist.create(title, min_tempo, max_tempo) 
+        
     end
-
-
-            
-            
-        # # if "b", set to (140...150)        
-        # elsif activity_input.downcase == "b"
-        #     @@tempo_assignment = (140...150)
-        #     self.tempo_assignment = (140...150)
-        #     self.save
-
-        # # if "c", set to (150...160)
-        # elsif activity_input.downcase == "c"
-        #     @@tempo_assignment = (150...160)
-        #     self.tempo_assignment = (150...160)
-        #     self.save
-
-        # # if "d", set to (160...180)
-        # elsif activity_input.downcase == "d"
-        #     @@tempo_assignment = (160...180)
-        #     self.tempo_assignment = (160...180)
-        #     self.save 
-            
-
+        
     
 
 end
