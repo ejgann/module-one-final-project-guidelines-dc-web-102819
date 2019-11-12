@@ -5,6 +5,17 @@ class Song < ActiveRecord::Base
 
 
     #################################################
+#   #Song class variables/methods
+    #################################################
+
+    @@act_assignment = ""
+    def self.activity_assignment
+        @@act_assignment
+    end
+    # creates a Song class variable and method for activity_assignment
+
+
+    #################################################
     # Activity_level Question
     #################################################
 
@@ -19,11 +30,43 @@ class Song < ActiveRecord::Base
         puts "\n"
         activity_assignment(activity_input)
     end
-    # activity_question prints question and captures user's answer
+    # activity_question puts question/answer options and captures user's answer, which is assigned to "activity_input" variable
 
 
     def activity_assignment(activity_input)
+        # if "a", set song's class var to "Casual walk" and links it to song class method; saves
+        if activity_input.downcase == "a"
+            @@act_assignment = "Casual walk"
 
+            self.activity_assignment = "Casual walk"
+                self.save
+                # .save saves this for activerecord purposes
+            
+        # if "b", set to "Vigorous walk"        
+        elsif activity_input.downcase == "b"
+            @@act_assignment = "Vigorous walk"
+
+            self.activity_assignment = "Vigorous walk"
+            self.save
+
+        # if "c", set to Steady-pace run"
+        elsif activity_input.downcase == "c"
+            @@act_assignment = "Steady-pace run"
+
+            self.activity_assignment = "Steady-pace run"
+            self.save
+
+        # if "d", set to "Sprints or high-intensity intervals"
+        elsif activity_input.downcase == "d"
+            @@act_assignment = "Sprints or high-intensity intervals"
+
+            self.activity_assignment = "Sprints or high-intensity intervals"
+            self.save 
+            
+        end
+
+        
+     
     end
     #activity_assignment takes the "activity_input" variable provided by user in #activity_level method
 
