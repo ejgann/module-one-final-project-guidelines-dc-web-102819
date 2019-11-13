@@ -19,21 +19,14 @@ class Cli
     #################################################
 
     def loop_method
-
         puts "Would you like to run this app again? (yes | no)"
-
         restart = gets.chomp
-
         puts "\n"
-
         if restart == "no"
-
             puts "Thank you for using Workout Beats!"
-
         elsif restart == "yes"
             until restart == "yes" || restart == "no" do
                 puts "That is not an option, please type 'yes' or 'no'"
-
                 puts "Would you like to run this app again? (yes | no)"
 
                 restart = gets.chomp
@@ -43,12 +36,39 @@ class Cli
         return restart
     end
 
+# ####### Asks for user's desired exercise level #########
 
-    #################################################
-    # Activity Question -- activity puts question/answer options and captures user's answer, which is assigned to "activity_input" variable
-    #################################################
+    def activity
+        puts "\nWhich of the following describes the type of activity for which you want to create a playlist?\n
+        a. Casual walk
+        b. Vigorous walk
+        c. Steady-pace run
+        d. Sprints or other high-intensity intervals\n"
 
-    
+        activity_input = gets.chomp
+        puts "\n"
+
+    # Links user's input (a-d) with a preset BPM range. 
+    # Establishes min and max values for #playlist_creation below
+
+        if activity_input.downcase == "a"
+            puts "Take a leisurely stroll with songs in the 130-140 BPM range." 
+            return playlist_creation(130, 140)
+        end
+        if activity_input.downcase == "b"
+            puts "Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range."
+            return playlist_creation(140, 150)       
+        end
+        if activity_input.downcase == "c"
+            puts "It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range." 
+            return playlist_creation(150, 160)      
+        end
+        if activity_input.downcase == "d"
+            puts "Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!"
+            return playlist_creation(160, 180)       
+        end
+    end
+
     #################################################
     # Playlist creation -- asks user for playlist name
     # and creates a playlist using that name as title
@@ -63,6 +83,9 @@ class Cli
         return Playlist.create(title: "#{title}", min_tempo: "#{min_tempo}", max_tempo: "#{max_tempo}")
         
     end
+
+    
+    
 
     
         

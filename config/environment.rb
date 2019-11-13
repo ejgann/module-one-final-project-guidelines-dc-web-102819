@@ -1,7 +1,8 @@
 require 'bundler/setup'
 Bundler.require
 require 'require_all'
-require_all './bin'
+# require_all './bin'
+require_all './lib'
 
 require 'sinatra/activerecord/rake'
 

@@ -1,21 +1,23 @@
 require_relative '../config/environment'
 require_relative '../lib/cli.rb'
 require_relative '../lib/song.rb'
-cli = Cli.new
+require_relative '../lib/playlist.rb'
+Cli = Cli.new
 
 
 restart = ""
 until restart == "no" do
 
-    cli.greeting
-    song.activity
+    Cli.greeting
+    Cli.activity
     activity_input = gets.chomp
-    cli.playlist_creation(min_tempo, max_tempo)
+    Cli.playlist_creation(min_tempo, max_tempo)
     title = gets.chomp
+    Cli.playlist_creation
 
 
 
-    restart = cli.loop_method
+    restart = Cli.loop_method
 
 end
 
