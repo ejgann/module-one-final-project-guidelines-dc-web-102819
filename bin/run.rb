@@ -8,9 +8,9 @@ restart = ""
 until restart == "no" do
 
     cli.greeting
-    cli.activity
+    song.activity
     activity_input = gets.chomp
-    cli.playlist_creation
+    cli.playlist_creation(min_tempo, max_tempo)
     title = gets.chomp
 
 
@@ -18,3 +18,4 @@ until restart == "no" do
     restart = cli.loop_method
 
 end
+
