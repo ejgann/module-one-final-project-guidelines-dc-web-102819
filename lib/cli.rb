@@ -19,7 +19,7 @@ class Cli
     #################################################
 
     def loop_method
-        puts "Would you like to run this app again? (yes | no)"
+        puts "Would you like to create a different playlist? (yes | no)"
         restart = gets.chomp
         puts "\n"
         if restart == "no"
@@ -27,7 +27,7 @@ class Cli
         elsif restart == "yes"
             until restart == "yes" || restart == "no" do
                 puts "That is not an option, please type 'yes' or 'no'"
-                puts "Would you like to run this app again? (yes | no)"
+                puts "Would you like to create a different playlist? (yes | no)"
 
                 restart = gets.chomp
                 puts "\n"
@@ -59,15 +59,11 @@ class Cli
 
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
+            # produces an array of song objects within the 130-140 range
 
-            puts new_playlist.name = "#{title.upcase}"
+            return new_playlist.map {|song| song.title}
+            
         end
-    end
-
-
-
-
-end
 
         if activity_input.downcase == "b"
             puts "Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range."
@@ -80,12 +76,13 @@ end
 
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
+
+            return new_playlist.map {|song| song.title}
         end
 
         if activity_input.downcase == "c"
             puts "It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range." 
-            # return playlist_name(150, 160) 
-            
+     
             puts "\nWhat would you like to name your playlist?"
             
             title = gets.chomp 
@@ -93,12 +90,13 @@ end
             max_tempo = 160
 
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
-            new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
-
+            new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo) 
+            
+            return new_playlist.map {|song| song.title}
         end
+
         if activity_input.downcase == "d"
-            puts "Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!"
-            # return playlist_name(160, 180)   
+            puts "Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!"   
             
             puts "\nWhat would you like to name your playlist?"
             
@@ -109,16 +107,12 @@ end
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
+            return new_playlist.map {|song| song.title}
         end
- 
+    end
 
+    # want to show the names and tempos of the songs within the user's new playlist
 
-
-
-    # # METHODS TO RETRIEVE SONGS BY RANGE FROM DB
-
-    # def get_130_140_songs(tempo)
-    #     where(tempo: 130...140)
-    # end
+end
 
 
