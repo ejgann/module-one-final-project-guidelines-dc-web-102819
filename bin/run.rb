@@ -11,9 +11,13 @@ until restart == "no" do
     Cli.greeting
     Cli.activity
     activity_input = gets.chomp
-    Cli.playlist_creation(min_tempo, max_tempo)
     title = gets.chomp
-    Cli.playlist_creation
+    puts "\n"
+    # Cli.playlist_name(min_tempo, max_tempo)
+    Cli.playlist.create(title, min_tempo, max_tempo)
+    
+    # Cli.get_130_140_songs(tempo)
+    
 
 
 

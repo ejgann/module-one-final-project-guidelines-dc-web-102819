@@ -1,4 +1,4 @@
-require 'require_all'
+# require 'require_all'
 require_relative '../config/environment.rb'
 # require_relative '../bin/song.rb'
 # require_relative '../bin/playlist.rb'
@@ -59,8 +59,8 @@ Song.create(title: "All About That Base", tempo: 134)
 Song.create(title: "Baby Love", tempo: 135)
 Song.create(title: "Bringin' On the Heartbreak", tempo: 131)
 
-Playlist.create(title: "130-140 songs", min_tempo: 130, max_tempo: 140)
-Playlist.create(title: "140-150 songs", min_tempo: 140, max_tempo: 150)
-Playlist.create(title: "150-160 songs", min_tempo: 150, max_tempo: 160)
-Playlist.create(title: "160-180 songs", min_tempo: 160, max_tempo: 180)
+# Playlist.create(title: "130-140 songs", min_tempo: 130, max_tempo: 140)
+# Playlist.create(title: "140-150 songs", min_tempo: 140, max_tempo: 150)
+# Playlist.create(title: "150-160 songs", min_tempo: 150, max_tempo: 160)
+# Playlist.create(title: "160-180 songs", min_tempo: 160, max_tempo: 180)
 
