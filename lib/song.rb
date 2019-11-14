@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
     def self.get_songs_in_range(min, max)
         Song.all.select do |song|
-        song.tempo >= 130 && song.tempo <= 140
+        song.tempo >= min && song.tempo <= max
         end
     end
     

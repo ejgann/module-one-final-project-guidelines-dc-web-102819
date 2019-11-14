@@ -8,14 +8,14 @@ Cli = Cli.new
 restart = ""
 until restart == "no" do
 
+ 
     Cli.greeting
     Cli.activity
     activity_input = gets.chomp
     title = gets.chomp
-    Song.add_song
+    Playlist.create_playlist(title, min_tempo, max_tempo)
+    Song.get_songs_in_range(min, max)
     
-    
-    # Cli.get_130_140_songs(tempo)
     
 
 

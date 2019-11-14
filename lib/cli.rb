@@ -57,28 +57,59 @@ class Cli
             min_tempo = 130
             max_tempo = 140
 
-            puts "\nGreat! Your '#{title}' playlist will contain songs with a minimum tempo of #{min_tempo} BPM and a maximum tempo of #{max_tempo} BPM.\n\n\n"
-            Playlist.create_playlist(title, min_tempo, max_tempo)
+            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
+
+            puts new_playlist.name = "#{title.upcase}"
         end
-        # end
-        
-        
-    
     end
+
+
+
+
 end
 
-        # if activity_input.downcase == "b"
-        #     puts "Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range."
-        #     return playlist_name(140, 150)       
-        # end
-        # if activity_input.downcase == "c"
-        #     puts "It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range." 
-        #     return playlist_name(150, 160)      
-        # end
-        # if activity_input.downcase == "d"
-        #     puts "Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!"
-        #     return playlist_name(160, 180)       
-        # end
+        if activity_input.downcase == "b"
+            puts "Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range."
+
+            puts "\nWhat would you like to name your playlist?"
+            
+            title = gets.chomp 
+            min_tempo = 140
+            max_tempo = 150
+
+            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
+        end
+
+        if activity_input.downcase == "c"
+            puts "It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range." 
+            # return playlist_name(150, 160) 
+            
+            puts "\nWhat would you like to name your playlist?"
+            
+            title = gets.chomp 
+            min_tempo = 150
+            max_tempo = 160
+
+            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
+
+        end
+        if activity_input.downcase == "d"
+            puts "Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!"
+            # return playlist_name(160, 180)   
+            
+            puts "\nWhat would you like to name your playlist?"
+            
+            title = gets.chomp 
+            min_tempo = 160
+            max_tempo = 180
+
+            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
+
+        end
  
 
 
