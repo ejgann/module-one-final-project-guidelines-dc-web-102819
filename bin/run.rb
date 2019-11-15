@@ -9,16 +9,13 @@ Cli = Cli.new
 restart = ""
 until restart == "no" do
 
- 
+    Cli.name_art 
     Cli.greeting
     new_playlist = Cli.activity
     activity_input = gets.chomp
     title = gets.chomp
-    Playlist.create_playlist(title, min_tempo, max_tempo)
-    Song.get_songs_in_range(min, max)
-
-    
-    
+    Playlist.create_playlist(title, @min_tempo, @max_tempo)
+    Song.get_songs_in_range(@min, @max)
     restart = Cli.loop_method
 
 end

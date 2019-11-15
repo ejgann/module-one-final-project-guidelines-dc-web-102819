@@ -5,12 +5,38 @@ require_relative '../lib/playlist.rb'
 
 class Cli
 
-    # def title
-    #     # will contain CLI art and title of application
-    # end
+    def name_art
+        puts "\n\n\n\n\n
+                                                                                                                                      
+                                                                                                                                      
+        BBBBBBBBBBBBBBBBB                                                  tttt                    IIIIIIIIII         tttt                !!! 
+        B::::::::::::::::B                                              ttt:::t                    I::::::::I      ttt:::t               !!:!!
+        B::::::BBBBBB:::::B                                             t:::::t                    I::::::::I      t:::::t               !:::!
+        BB:::::B     B:::::B                                            t:::::t                    II::::::II      t:::::t               !:::!
+          B::::B     B:::::B    eeeeeeeeeeee      aaaaaaaaaaaaa   ttttttt:::::ttttttt                I::::I  ttttttt:::::ttttttt         !:::!
+          B::::B     B:::::B  ee::::::::::::ee    a::::::::::::a  t:::::::::::::::::t                I::::I  t:::::::::::::::::t         !:::!
+          B::::BBBBBB:::::B  e::::::eeeee:::::ee  aaaaaaaaa:::::a t:::::::::::::::::t                I::::I  t:::::::::::::::::t         !:::!
+          B:::::::::::::BB  e::::::e     e:::::e           a::::a tttttt:::::::tttttt                I::::I  tttttt:::::::tttttt         !:::!
+          B::::BBBBBB:::::B e:::::::eeeee::::::e    aaaaaaa:::::a       t:::::t                      I::::I        t:::::t               !:::!
+          B::::B     B:::::Be:::::::::::::::::e   aa::::::::::::a       t:::::t                      I::::I        t:::::t               !:::!
+          B::::B     B:::::Be::::::eeeeeeeeeee   a::::aaaa::::::a       t:::::t                      I::::I        t:::::t               !!:!!
+          B::::B     B:::::Be:::::::e           a::::a    a:::::a       t:::::t    tttttt            I::::I        t:::::t    tttttt      !!! 
+        BB:::::BBBBBB::::::Be::::::::e          a::::a    a:::::a       t::::::tttt:::::t          II::::::II      t::::::tttt:::::t          
+        B:::::::::::::::::B  e::::::::eeeeeeee  a:::::aaaa::::::a       tt::::::::::::::t          I::::::::I      tt::::::::::::::t      !!! 
+        B::::::::::::::::B    ee:::::::::::::e   a::::::::::aa:::a        tt:::::::::::tt          I::::::::I        tt:::::::::::tt     !!:!!
+        BBBBBBBBBBBBBBBBB       eeeeeeeeeeeeee    aaaaaaaaaa  aaaa          ttttttttttt            IIIIIIIIII          ttttttttttt        !!! 
+                                                                                                                                              
+                                                                                                                                              
+                                                                                                                                              
+                                                                                                                                              
+                                                                                                                                              
+                                                                                                                                              
+                                                                                                                                              
+        "
+    end
 
     def greeting
-        puts "\nWelcome to Workout Beats! Create a music playlist based on songs' beats per minute to inspire you while working out. Give us an idea of what type of exercise you'll be doing, and we will create a playlist customized just for you that contain songs with similar beats per minute (BPM) that will power your workout.\n"
+        puts "\nWelcome to Beat It! Create a music playlist based on songs' beats per minute to inspire you while working out. Plug in your activity level and get a playlist containing songs with similar beats per minute (BPM) that will power your workout.\n"
     end
 
     #################################################
@@ -18,28 +44,12 @@ class Cli
     # or exit the program
     #################################################
 
-    def loop_method
-        puts "Would you like to create a different playlist? (yes | no)"
-        restart = gets.chomp
-        puts "\n"
-        if restart == "no"
-            puts "Thank you for using Workout Beats!"
-        elsif restart == "yes"
-            until restart == "yes" || restart == "no" do
-                puts "That is not an option, please type 'yes' or 'no'"
-                puts "Would you like to create a different playlist? (yes | no)"
-
-                restart = gets.chomp
-                puts "\n"
-            end
-        end
-        return restart
-    end
+    
 
 # ####### Asks for user's desired exercise level #########
 
     def activity
-        puts "\nWhich of the following describes the type of activity for which you want to create a playlist?\n
+        puts "\nWhat type of activity will you be doing?\n
         a. Casual walk
         b. Vigorous walk
         c. Steady-pace run
@@ -119,7 +129,23 @@ class Cli
         end
     end
 
-    # want to show the names and tempos of the songs within the user's new playlist
+    def loop_method
+        puts "Would you like to create a different playlist? (yes | no)"
+        restart = gets.chomp
+        puts "\n"
+        if restart == "no"
+            puts "Thank you for using Beat It!"
+        elsif restart == "yes"
+            until restart == "yes" || restart == "no" do
+                puts "That is not an option, please type 'yes' or 'no'"
+                puts "Would you like to create a different playlist? (yes | no)"
+
+                restart = gets.chomp
+                puts "\n"
+            end
+        end
+        return restart
+    end
 
 end
 

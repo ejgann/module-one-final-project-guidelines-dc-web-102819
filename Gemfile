@@ -6,3 +6,4 @@ gem "sqlite3", "~> 1.4.0"
 gem "pry"
 gem "require_all"
 gem "rake"
+gem 'rainbow', '~> 3.0'
