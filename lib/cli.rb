@@ -6,7 +6,11 @@ require_relative '../lib/playlist.rb'
 class Cli
 
     def name_art
-        puts "\n\n\n\n\n
+
+        puts Rainbow("\n      ******************************************************************************************************************************************\n\n").blue
+
+
+        puts Rainbow("\n
                                                                                                                                       
                                                                                                                                       
         BBBBBBBBBBBBBBBBB                                                  tttt                    IIIIIIIIII         tttt                !!! 
@@ -32,11 +36,14 @@ class Cli
                                                                                                                                               
                                                                                                                                               
                                                                                                                                               
-        "
+        ").yellow
+
+        puts Rainbow("      ******************************************************************************************************************************************\n\n").blue
+
     end
 
     def greeting
-        puts "\nWelcome to Beat It! Create a music playlist based on songs' beats per minute to inspire you while working out. Plug in your activity level and get a playlist containing songs with similar beats per minute (BPM) that will power your workout.\n"
+        puts Rainbow("\nWelcome to Beat It! Create a music playlist based on songs' beats per minute to inspire you while working out.\nPlug in your activity level and get a playlist containing songs with similar beats per minute (BPM) that will power your workout.\n").yellow  
     end
 
     #################################################
@@ -49,25 +56,25 @@ class Cli
 # ####### Asks for user's desired exercise level #########
 
     def activity
-        puts "\nWhat type of activity will you be doing?\n
+        puts Rainbow("\nWhat type of activity will you be doing?\n
         a. Casual walk
         b. Vigorous walk
         c. Steady-pace run
-        d. Sprints or other high-intensity intervals\n"
+        d. Sprints or other high-intensity intervals\n").yellow
 
         activity_input = gets.chomp
         puts "\n"
 
         if activity_input.downcase == "a"
-            puts "Take a leisurely stroll with songs in the 130-140 BPM range." 
+            puts Rainbow("Take a leisurely stroll with songs in the 130-140 BPM range.").indianred 
             
-            puts "\nWhat would you like to name your playlist?"
+            puts Rainbow("\nWhat would you like to name your playlist?").indianred
 
             title = gets.chomp 
             min_tempo = 130
             max_tempo = 140
 
-            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
             # produces an array of song objects within the 130-140 range
 
@@ -78,15 +85,15 @@ class Cli
         end
 
         if activity_input.downcase == "b"
-            puts "Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range."
+            puts Rainbow("Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range.").indianred
 
-            puts "\nWhat would you like to name your playlist?"
+            puts Rainbow("\nWhat would you like to name your playlist?").indianred
             
             title = gets.chomp 
             min_tempo = 140
             max_tempo = 150
 
-            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
             song_list = new_playlist.map {|song| song.title}
@@ -95,15 +102,15 @@ class Cli
         end
 
         if activity_input.downcase == "c"
-            puts "It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range." 
+            puts Rainbow("It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range.").indianred 
      
-            puts "\nWhat would you like to name your playlist?"
+            puts Rainbow("\nWhat would you like to name your playlist?").indianred
             
             title = gets.chomp 
             min_tempo = 150
             max_tempo = 160
 
-            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo) 
             
             song_list = new_playlist.map {|song| song.title}
@@ -112,15 +119,15 @@ class Cli
         end
 
         if activity_input.downcase == "d"
-            puts "Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!"   
+            puts Rainbow("Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!").indianred   
             
-            puts "\nWhat would you like to name your playlist?"
+            puts Rainbow("\nWhat would you like to name your playlist?").indianred
             
             title = gets.chomp 
             min_tempo = 160
             max_tempo = 180
 
-            puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
             song_list = new_playlist.map {|song| song.title}
@@ -130,15 +137,15 @@ class Cli
     end
 
     def loop_method
-        puts "Would you like to create a different playlist? (yes | no)"
+        puts Rainbow("Would you like to create a different playlist? (yes | no)").yellow
         restart = gets.chomp
         puts "\n"
         if restart == "no"
-            puts "Thank you for using Beat It!"
+            puts Rainbow("Thanks for using Beat It!\n\n\n\n").yellow 
         elsif restart == "yes"
             until restart == "yes" || restart == "no" do
-                puts "That is not an option, please type 'yes' or 'no'"
-                puts "Would you like to create a different playlist? (yes | no)"
+                puts Rainbow("That is not an option, please type 'yes' or 'no'").yellow
+                puts Rainbow("Would you like to create a different playlist? (yes | no)").yellow
 
                 restart = gets.chomp
                 puts "\n"
