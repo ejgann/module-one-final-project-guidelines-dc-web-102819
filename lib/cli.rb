@@ -61,7 +61,9 @@ class Cli
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
             # produces an array of song objects within the 130-140 range
 
-            return new_playlist.map {|song| song.title}
+            song_list = new_playlist.map {|song| song.title}
+
+            puts song_list
             
         end
 
@@ -77,7 +79,9 @@ class Cli
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
-            return new_playlist.map {|song| song.title}
+            song_list = new_playlist.map {|song| song.title}
+
+            puts song_list
         end
 
         if activity_input.downcase == "c"
@@ -92,7 +96,9 @@ class Cli
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo) 
             
-            return new_playlist.map {|song| song.title}
+            song_list = new_playlist.map {|song| song.title}
+
+            puts song_list
         end
 
         if activity_input.downcase == "d"
@@ -107,7 +113,9 @@ class Cli
             puts "\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n"
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
-            return new_playlist.map {|song| song.title}
+            song_list = new_playlist.map {|song| song.title}
+
+            puts song_list
         end
     end
 
