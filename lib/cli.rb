@@ -66,15 +66,15 @@ class Cli
         puts "\n"
 
         if activity_input.downcase == "a"
-            puts Rainbow("Take a leisurely stroll with songs in the 130-140 BPM range.").indianred 
+            puts Rainbow("Take a leisurely stroll with songs in the 130-140 BPM range.").cyan 
             
-            puts Rainbow("\nWhat would you like to name your playlist?").indianred
+            puts Rainbow("\nWhat would you like to name your playlist?").cyan
 
             title = gets.chomp 
             min_tempo = 130
             max_tempo = 140
 
-            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").cyan
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
             # produces an array of song objects within the 130-140 range
 
@@ -85,15 +85,15 @@ class Cli
         end
 
         if activity_input.downcase == "b"
-            puts Rainbow("Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range.").indianred
+            puts Rainbow("Speed Walker!\nWe'll pull together a list of songs within the 140-150 BPM range.").cyan
 
-            puts Rainbow("\nWhat would you like to name your playlist?").indianred
+            puts Rainbow("\nWhat would you like to name your playlist?").cyan
             
             title = gets.chomp 
             min_tempo = 140
             max_tempo = 150
 
-            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").cyan
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
             song_list = new_playlist.map {|song| song.title}
@@ -102,15 +102,15 @@ class Cli
         end
 
         if activity_input.downcase == "c"
-            puts Rainbow("It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range.").indianred 
+            puts Rainbow("It's a marathon and not a sprint!\nKeep a steady pace with songs in the 150-160 BPM range.").cyan 
      
-            puts Rainbow("\nWhat would you like to name your playlist?").indianred
+            puts Rainbow("\nWhat would you like to name your playlist?").cyan
             
             title = gets.chomp 
             min_tempo = 150
             max_tempo = 160
 
-            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").cyan
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo) 
             
             song_list = new_playlist.map {|song| song.title}
@@ -119,15 +119,15 @@ class Cli
         end
 
         if activity_input.downcase == "d"
-            puts Rainbow("Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!").indianred   
+            puts Rainbow("Hope you're ready to sweat!\nSongs with 160-180 BPM should keep your heart rate up!").cyan   
             
-            puts Rainbow("\nWhat would you like to name your playlist?").indianred
+            puts Rainbow("\nWhat would you like to name your playlist?").cyan
             
             title = gets.chomp 
             min_tempo = 160
             max_tempo = 180
 
-            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").indianred
+            puts Rainbow("\nGreat! Your '#{title}' playlist contains songs with #{min_tempo} to #{max_tempo} BPM.\n\n\n").cyan
             new_playlist = Playlist.create_playlist(title, min_tempo, max_tempo)
 
             song_list = new_playlist.map {|song| song.title}
